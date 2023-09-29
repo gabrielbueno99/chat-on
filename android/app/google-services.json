@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1086512093358",
+    "project_id": "chaton-24ad6",
+    "storage_bucket": "chaton-24ad6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086512093358:android:aa68890ed5803f4809b53f",
+        "android_client_info": {
+          "package_name": "com.example.chaton"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUuaaHKJl5TVI1RvHowked-ASNbk8pUR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
