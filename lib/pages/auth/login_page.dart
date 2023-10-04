@@ -52,9 +52,8 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w400),
                       ),
-                      Image.asset("assets/login.png"),
                       TextFormField(
-                        decoration: textInputDecoration.copyWith(
+                        decoration: InputDecoration(
                           labelText: "Email",
                           prefixIcon: Icon(
                             Icons.email,
@@ -77,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 15),
                       TextFormField(
                         obscureText: true,
-                        decoration: textInputDecoration.copyWith(
+                        decoration: InputDecoration(
                           labelText: "Password",
                           prefixIcon: Icon(
                             Icons.lock,
@@ -101,7 +100,6 @@ class _LoginPageState extends State<LoginPage> {
                         height: 20,
                       ),
                       SizedBox(
-                        width: double.infinity,
                         child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:

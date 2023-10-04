@@ -30,101 +30,93 @@ class _RegisterPageState extends State<RegisterPage> {
                   color: Theme.of(context).primaryColor,
                 ),
               )
-            : SingleChildScrollView(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      const Text(
-                        "ChatOn",
-                        style: TextStyle(
-                            fontSize: 40, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'Crie uma conta e converse com seus amigos!',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w400),
-                      ),
-                      Image.asset("assets/login.png"),
-                      TextFormField(
-                        decoration: textInputDecoration.copyWith(
-                          labelText: "Nome completo",
-                          prefixIcon: Icon(
-                            Icons.person,
-                            color: Theme.of(context).primaryColor,
-                          ),
+            : Center(
+                child: SingleChildScrollView(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        const Text(
+                          "ChatOn",
+                          style: TextStyle(
+                              fontSize: 40, fontWeight: FontWeight.bold),
                         ),
-                        onChanged: (val) {
-                          setState(() {
-                            fullName = val;
-                          });
-                        },
-                        validator: (val) {
-                          if (val!.isNotEmpty) {
-                            return null;
-                          } else {
-                            return "O nome não pode estar vazio";
-                          }
-                        },
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      TextFormField(
-                        decoration: textInputDecoration.copyWith(
-                          labelText: "Email",
-                          prefixIcon: Icon(
-                            Icons.email,
-                            color: Theme.of(context).primaryColor,
+                        const SizedBox(height: 15),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: "Nome completo",
+                            prefixIcon: Icon(
+                              Icons.person,
+                              color: Theme.of(context).primaryColor,
+                            ),
                           ),
+                          onChanged: (val) {
+                            setState(() {
+                              fullName = val;
+                            });
+                          },
+                          validator: (val) {
+                            if (val!.isNotEmpty) {
+                              return null;
+                            } else {
+                              return "O nome não pode estar vazio";
+                            }
+                          },
                         ),
-                        onChanged: (val) {
-                          setState(() {
-                            email = val;
-                          });
-                        },
-                        validator: (val) {
-                          return RegExp(
-                                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                  .hasMatch(val!)
-                              ? null
-                              : "Coloque um email valido";
-                        },
-                      ),
-                      const SizedBox(height: 15),
-                      TextFormField(
-                        obscureText: true,
-                        decoration: textInputDecoration.copyWith(
-                          labelText: "Password",
-                          prefixIcon: Icon(
-                            Icons.lock,
-                            color: Theme.of(context).primaryColor,
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: "Email",
+                            prefixIcon: Icon(
+                              Icons.email,
+                              color: Theme.of(context).primaryColor,
+                            ),
                           ),
+                          onChanged: (val) {
+                            setState(() {
+                              email = val;
+                            });
+                          },
+                          validator: (val) {
+                            return RegExp(
+                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                    .hasMatch(val!)
+                                ? null
+                                : "Coloque um email valido";
+                          },
                         ),
-                        onChanged: (val) {
-                          setState(() {
-                            password = val;
-                          });
-                        },
-                        validator: (val) {
-                          if (val!.length < 6) {
-                            return "A senha precisa ter pelo menos 6 digitos";
-                          } else {
-                            return null;
-                          }
-                        },
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
+                        const SizedBox(height: 15),
+                        TextFormField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            labelText: "Senha",
+                            prefixIcon: Icon(
+                              Icons.password,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                          onChanged: (val) {
+                            setState(() {
+                              password = val;
+                            });
+                          },
+                          validator: (val) {
+                            if (val!.length < 6) {
+                              return "A senha precisa ter pelo menos 6 digitos";
+                            } else {
+                              return null;
+                            }
+                          },
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:
                                     Theme.of(context).primaryColor),
@@ -136,27 +128,27 @@ class _RegisterPageState extends State<RegisterPage> {
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16),
                             )),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text.rich(TextSpan(
-                          text: "Já possui uma conta? ",
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 14),
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: "Faça login",
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    decoration: TextDecoration.underline),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    nextScreen(context, LoginPage());
-                                  })
-                          ]))
-                    ],
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text.rich(TextSpan(
+                            text: "Já possui uma conta? ",
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 14),
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: "Faça login",
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      decoration: TextDecoration.underline),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      nextScreen(context, LoginPage());
+                                    })
+                            ]))
+                      ],
+                    ),
                   ),
                 ),
               ));
