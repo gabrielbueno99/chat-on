@@ -28,7 +28,7 @@ void showSnackBar(context, color, message) {
       style: const TextStyle(fontSize: 14),
     ),
     backgroundColor: color,
-    duration: Duration(seconds: 5),
+    duration: const Duration(seconds: 5),
     action: SnackBarAction(
       label: "Ok",
       onPressed: () {},
